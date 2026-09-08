@@ -1,0 +1,131 @@
+{
+  "app": {
+    "name": "DAWRI",
+    "tagline": "Lebanese Basketball League"
+  },
+  "tabs": {
+    "home": "Home",
+    "schedule": "Schedule",
+    "standings": "Standings",
+    "rewards": "Rewards",
+    "more": "More"
+  },
+  "home": {
+    "welcome": "Welcome to DAWRI",
+    "seasonChampion": "2025-26 Champions",
+    "championTitle": "20th League Title",
+    "finalsResult": "Finals: 4-3 vs Sagesse",
+    "finalsMvp": "Finals MVP",
+    "yourTeam": "Your Team",
+    "selectTeam": "Select a team to follow",
+    "pointsBalance": "Points Balance",
+    "tier": "Tier",
+    "recentResults": "Recent Results",
+    "finalsHighlight": "Finals Highlight",
+    "game7": "Game 7",
+    "championship": "Championship Game"
+  },
+  "schedule": {
+    "title": "Schedule",
+    "finals": "Finals Series",
+    "regularSeason": "Regular Season",
+    "all": "All Games",
+    "filterByTeam": "Filter by Team",
+    "noGames": "No games found"
+  },
+  "standings": {
+    "title": "Standings",
+    "season": "2025-26 Season (Final)",
+    "rank": "#",
+    "team": "Team",
+    "played": "P",
+    "wins": "W",
+    "losses": "L",
+    "points": "Pts",
+    "champion": "Champion",
+    "runnerUp": "Runner-up",
+    "playoffs": "Playoffs"
+  },
+  "teams": {
+    "title": "Teams",
+    "arena": "Arena",
+    "city": "City",
+    "coach": "Coach",
+    "record": "Record",
+    "championships": "Championships",
+    "roster": "Roster",
+    "capacity": "Capacity"
+  },
+  "game": {
+    "final": "Final",
+    "vs": "vs",
+    "at": "at",
+    "venue": "Venue",
+    "date": "Date",
+    "series": "Series",
+    "boxScore": "Box Score",
+    "highlights": "Highlights",
+    "checkIn": "Check In",
+    "checkedIn": "Checked In"
+  },
+  "rewards": {
+    "title": "Rewards",
+    "pointsBalance": "Points Balance",
+    "pts": "pts",
+    "tier": "Tier",
+    "tierProgress": "Tier Progress",
+    "nextTier": "Next tier",
+    "checkInsAway": "check-ins away",
+    "earnPoints": "Earn Points",
+    "checkInGame": "Check in at a game",
+    "earnPerGame": "+1,000 pts per game",
+    "catalog": "Rewards Catalog",
+    "redeem": "Redeem",
+    "notEnoughPoints": "Not enough points",
+    "redeemed": "Redeemed!",
+    "checkInSuccess": "Check-in successful!",
+    "pointsEarned": "You earned 1,000 points"
+  },
+  "tiers": {
+    "fan": "Fan",
+    "regular": "Regular",
+    "ultra": "Ultra",
+    "legend": "Legend"
+  },
+  "more": {
+    "title": "More",
+    "language": "Language",
+    "about": "About DAWRI",
+    "privacy": "Privacy Policy",
+    "dataAttribution": "Data Attribution",
+    "version": "Version",
+    "seasonData": "Season 2025-26 (Final)",
+    "favoriteTeam": "Favorite Team",
+    "notifications": "Notifications",
+    "comingSoon": "Coming Soon"
+  },
+  "about": {
+    "title": "About DAWRI",
+    "description": "DAWRI is the ultimate fan app for the Lebanese Basketball League. Follow your favorite teams, track standings, earn rewards for attending games, and stay connected to Lebanese basketball.",
+    "owner": "Created by Elie Mirza",
+    "disclaimer": "This is a fan application. Data sourced from public records. Not affiliated with the Lebanese Basketball Federation."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "Your privacy is important to us.",
+    "dataCollection": "Data Collection",
+    "dataCollectionText": "DAWRI stores your preferences (favorite team, language, check-ins) locally on your device. No personal data is transmitted to external servers.",
+    "location": "Location",
+    "locationText": "Location access is optional and only used to verify venue check-ins. Location data is not stored or shared.",
+    "contact": "Contact",
+    "contactText": "For questions, contact the app developer."
+  },
+  "common": {
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry"
+  }
+}

@@ -1,0 +1,932 @@
+{
+  "season": "2025-26",
+  "league": "Decathlon Lebanese Basketball League",
+  "organizer": "Lebanese Basketball Federation (FLB)",
+  "duration": {
+    "start": "2025-10-18",
+    "end": "2026-08-03"
+  },
+  "notes": [
+    "Season paused during the 2026 Lebanon War (2 March – 22 May 2026) per Wikipedia.",
+    "Finals MVP: Asia-Basket Game 7 recap (4 Aug 2026) names Karim Zeinoun; the Asia-Basket season awards block also lists Dusan Miletic as Finals MVP — conflict noted; seed uses Zeinoun from the Game 7 article.",
+    "Beirut Club is also referred to as Beirut First in some sources."
+  ],
+  "champion": "Al Riyadi",
+  "runnerUp": "Sagesse",
+  "finals": {
+    "series": "4-3",
+    "mvp": "Karim Zeinoun",
+    "mvpConflictNote": "Asia-Basket awards listing also names Dusan Miletic Finals MVP",
+    "games": [
+      {
+        "game": 1,
+        "date": "2026-07-22",
+        "home": "Al Riyadi",
+        "away": "Sagesse",
+        "homeScore": 92,
+        "awayScore": 89,
+        "winner": "Al Riyadi",
+        "venue": "Saeb Salam Arena (Manara)",
+        "source": "riyadi.com"
+      },
+      {
+        "game": 2,
+        "date": "2026-07-24",
+        "home": "Sagesse",
+        "away": "Al Riyadi",
+        "homeScore": 101,
+        "awayScore": 96,
+        "winner": "Sagesse",
+        "venue": "Antoine Choueiri Stadium (Ghazir)",
+        "source": "riyadi.com"
+      },
+      {
+        "game": 3,
+        "date": "2026-07-26",
+        "home": "Al Riyadi",
+        "away": "Sagesse",
+        "homeScore": 87,
+        "awayScore": 85,
+        "winner": "Al Riyadi",
+        "venue": "Saeb Salam Arena (Manara)",
+        "source": "riyadi.com"
+      },
+      {
+        "game": 4,
+        "date": "2026-07-28",
+        "home": "Sagesse",
+        "away": "Al Riyadi",
+        "homeScore": 90,
+        "awayScore": 78,
+        "winner": "Sagesse",
+        "venue": "Antoine Choueiri Stadium (Ghazir)",
+        "source": "riyadi.com"
+      },
+      {
+        "game": 5,
+        "date": "2026-07-30",
+        "home": "Al Riyadi",
+        "away": "Sagesse",
+        "homeScore": 99,
+        "awayScore": 86,
+        "winner": "Al Riyadi",
+        "venue": "Saeb Salam Arena (Manara)",
+        "source": "riyadi.com"
+      },
+      {
+        "game": 6,
+        "date": "2026-08-01",
+        "home": "Sagesse",
+        "away": "Al Riyadi",
+        "homeScore": 96,
+        "awayScore": 65,
+        "winner": "Sagesse",
+        "venue": "Antoine Choueiri Stadium (Ghazir)",
+        "source": "riyadi.com"
+      },
+      {
+        "game": 7,
+        "date": "2026-08-03",
+        "home": "Al Riyadi",
+        "away": "Sagesse",
+        "homeScore": 100,
+        "awayScore": 79,
+        "winner": "Al Riyadi",
+        "venue": "Saeb Salam Arena (Manara)",
+        "source": "riyadi.com / asia-basket.com",
+        "highlights": "Zeinoun 32 pts (12/15 FG, 6/7 3PT); Miletic 24 pts 12 reb; Washington 23 / Doumbouya 19 for Sagesse"
+      }
+    ]
+  },
+  "playoffsSummary": {
+    "quarterfinals": [
+      {
+        "matchup": "Al Riyadi vs Beirut First",
+        "result": "3-0"
+      },
+      {
+        "matchup": "Antonine vs Antranik",
+        "result": "3-0"
+      },
+      {
+        "matchup": "Sagesse vs Homenetmen",
+        "result": "3-0"
+      },
+      {
+        "matchup": "Hoops Club vs Central Club",
+        "result": "0-3"
+      }
+    ],
+    "semifinals": [
+      {
+        "matchup": "Al Riyadi vs Antonine",
+        "result": "3-1"
+      },
+      {
+        "matchup": "Sagesse vs Central Club",
+        "result": "3-1"
+      }
+    ],
+    "source": "Wikipedia 2025–26 LBL / Flashscore"
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "teamId": "riyadi",
+      "played": 22,
+      "wins": 21,
+      "losses": 1,
+      "points": 43
+    },
+    {
+      "rank": 2,
+      "teamId": "sagesse",
+      "played": 22,
+      "wins": 18,
+      "losses": 4,
+      "points": 40
+    },
+    {
+      "rank": 3,
+      "teamId": "hoops",
+      "played": 22,
+      "wins": 14,
+      "losses": 8,
+      "points": 36
+    },
+    {
+      "rank": 4,
+      "teamId": "antonine",
+      "played": 22,
+      "wins": 13,
+      "losses": 9,
+      "points": 35
+    },
+    {
+      "rank": 5,
+      "teamId": "antranik",
+      "played": 22,
+      "wins": 13,
+      "losses": 9,
+      "points": 35
+    },
+    {
+      "rank": 6,
+      "teamId": "central",
+      "played": 22,
+      "wins": 13,
+      "losses": 9,
+      "points": 35
+    },
+    {
+      "rank": 7,
+      "teamId": "homenetmen",
+      "played": 22,
+      "wins": 11,
+      "losses": 11,
+      "points": 33
+    },
+    {
+      "rank": 8,
+      "teamId": "beirut",
+      "played": 22,
+      "wins": 10,
+      "losses": 12,
+      "points": 32
+    },
+    {
+      "rank": 9,
+      "teamId": "batroun",
+      "played": 22,
+      "wins": 7,
+      "losses": 15,
+      "points": 29
+    },
+    {
+      "rank": 10,
+      "teamId": "nsa",
+      "played": 22,
+      "wins": 6,
+      "losses": 16,
+      "points": 28
+    },
+    {
+      "rank": 11,
+      "teamId": "maristes",
+      "played": 22,
+      "wins": 5,
+      "losses": 17,
+      "points": 27
+    },
+    {
+      "rank": 12,
+      "teamId": "tadamon",
+      "played": 22,
+      "wins": 1,
+      "losses": 21,
+      "points": 23
+    }
+  ],
+  "standingsNote": "Wikipedia order used for 4th–6th (Antonine, Antranik, Central — all 13-9). Asia-Basket lists Antranik 4th, Antonine 5th, Club Central 6th.",
+  "teams": [
+    {
+      "id": "riyadi",
+      "nameEn": "Al Riyadi",
+      "nameAr": "الرياضي",
+      "altNames": [
+        "Sporting Al Riyadi Beirut",
+        "النادي الرياضي بيروت"
+      ],
+      "city": "Beirut",
+      "arena": "Saeb Salam Arena",
+      "arenaAr": "قاعة صائب سلام",
+      "arenaDetail": "Manara",
+      "capacity": 2500,
+      "coach": "Ahmad Farran",
+      "colors": [
+        "#006633",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "sagesse",
+      "nameEn": "Sagesse",
+      "nameAr": "الحكمة",
+      "altNames": [
+        "Sagesse SC",
+        "Al Hekmeh Beirut",
+        "نادي الحكمة"
+      ],
+      "city": "Ghazir",
+      "arena": "Antoine Choueiri Stadium",
+      "arenaAr": "ملعب أنطوان شويري",
+      "capacity": 5000,
+      "coach": "Joe Ghattas",
+      "colors": [
+        "#00843D",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "hoops",
+      "nameEn": "Hoops Club",
+      "nameAr": "هوبس",
+      "altNames": [
+        "نادي هوبس"
+      ],
+      "city": "Jdeideh",
+      "arena": "Rockland Arena",
+      "arenaDetail": "Bourj El Barajneh",
+      "capacity": 1750,
+      "coach": "Gilbert Nasr",
+      "colors": [
+        "#1a1a2e",
+        "#e94560"
+      ]
+    },
+    {
+      "id": "antonine",
+      "nameEn": "Antonine",
+      "nameAr": "الأنطوني",
+      "altNames": [
+        "CS Antonine",
+        "Club Sportif Antonine",
+        "نادي الأنطوني"
+      ],
+      "city": "Baabda",
+      "arena": "Antonine Arena",
+      "capacity": 1000,
+      "coach": "Ralf Akl",
+      "colors": [
+        "#003366",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "antranik",
+      "nameEn": "Antranik",
+      "nameAr": "أنترانك",
+      "altNames": [
+        "Antranik Beirut",
+        "انترانيك"
+      ],
+      "city": "Antelias",
+      "arena": "AGBU Demirdjian Center",
+      "arenaDetail": "Naccache",
+      "capacity": 2000,
+      "coach": "Elie Merheb",
+      "colors": [
+        "#0033a0",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "central",
+      "nameEn": "Central Club",
+      "nameAr": "المركزي",
+      "altNames": [
+        "Club Central Jounieh",
+        "Al Markaziyyah",
+        "نادي المركزي جونية"
+      ],
+      "city": "Jounieh",
+      "arena": "Club Central Court",
+      "capacity": 1000,
+      "coach": "George Geagea",
+      "colors": [
+        "#c8102e",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "homenetmen",
+      "nameEn": "Homenetmen",
+      "nameAr": "الهومنتمن",
+      "altNames": [
+        "Homentmen Beirut",
+        "Homenetmen Beirut"
+      ],
+      "city": "Mezher",
+      "arena": "Adom & Sella Tenjukian Stadium",
+      "altArena": "Homentmen Mezher",
+      "capacity": 1000,
+      "coach": "Joe Moujaes",
+      "colors": [
+        "#ff6600",
+        "#0033a0"
+      ]
+    },
+    {
+      "id": "beirut",
+      "nameEn": "Beirut Club",
+      "nameAr": "نادي بيروت",
+      "altNames": [
+        "Beirut First",
+        "فيرست بيروت",
+        "بيروت فيرست"
+      ],
+      "city": "Beirut",
+      "arena": "Chiyah Stadium",
+      "capacity": 2500,
+      "coach": "Marwan Diab",
+      "colors": [
+        "#111111",
+        "#c9a227"
+      ]
+    },
+    {
+      "id": "batroun",
+      "nameEn": "Chabab Batroun",
+      "nameAr": "شباب البترون",
+      "altNames": [
+        "CJS Batroun",
+        "Club Jeunesse Sportif Batroun",
+        "Chabeb Batroun"
+      ],
+      "city": "Batroun",
+      "arena": "Batroun Sports Club",
+      "altArenaNote": "Wikipedia 2025–26 season page also lists Nouhad Naufal Stadium (Zouk Mikael) as home venue",
+      "coach": "Charbel Feghali",
+      "colors": [
+        "#0055a5",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "nsa",
+      "nameEn": "Nadim Souaid Academy",
+      "nameAr": "أكاديمية نديم صعيّد",
+      "altNames": [
+        "NSA"
+      ],
+      "city": "Jounieh",
+      "arena": "Fouad Chehab Stadium",
+      "capacity": 1230,
+      "coach": "Marwan Khalil",
+      "colors": [
+        "#0d47a1",
+        "#ffc107"
+      ]
+    },
+    {
+      "id": "maristes",
+      "nameEn": "Champville-Maristes",
+      "nameAr": "الشامفيل",
+      "altNames": [
+        "CS Maristes",
+        "Champville Maristes",
+        "شامفيل-ماريست"
+      ],
+      "city": "Dik El Mehdi",
+      "arena": "Champville School Stadium",
+      "altArena": "Champville Club Center",
+      "capacity": 750,
+      "coach": "George Khoury",
+      "colors": [
+        "#1b5e20",
+        "#ffffff"
+      ]
+    },
+    {
+      "id": "tadamon",
+      "nameEn": "Tadamon Hrajel",
+      "nameAr": "تضامن حراجل",
+      "altNames": [
+        "Tadamon"
+      ],
+      "city": "Hrajel",
+      "arena": "Nouhad Naufal Stadium",
+      "arenaDetail": "Zouk Mikael (shared / listed on season page)",
+      "altArena": "Kahraba Zouk Club Stadium",
+      "capacity": 6000,
+      "coach": "Alain Saab",
+      "colors": [
+        "#b71c1c",
+        "#ffffff"
+      ]
+    }
+  ],
+  "awards": {
+    "leagueMvp": "Paris Bass",
+    "finalsMvp": "Karim Zeinoun",
+    "finalsMvpAltListing": "Dusan Miletic (Asia-Basket awards block)",
+    "topScorer": "Paris Bass",
+    "importPlayerOfYear": "Paris Bass",
+    "defensivePlayerOfYear": "Paris Bass",
+    "domesticPlayerOfYear": "Youssef Khayat",
+    "prospectOfYear": "Hadi El Khatib",
+    "source": "asia-basket.com DLBL 2025-26 awards"
+  },
+  "players": [
+    {
+      "id": "karim-zeinoun",
+      "name": "Karim Zeinoun",
+      "nameAr": "كريم زينون",
+      "teamId": "riyadi",
+      "notes": "Finals MVP (Game 7: 32 pts); Honorable Mention / All-Domestic"
+    },
+    {
+      "id": "dusan-miletic",
+      "name": "Dusan Miletic",
+      "teamId": "riyadi",
+      "notes": "Game 7: 24 pts 12 reb; listed Finals MVP on Asia-Basket awards block"
+    },
+    {
+      "id": "hayk-gyokchyan",
+      "name": "Hayk Gyokchyan",
+      "nameAr": "هايغ غيوقجيان",
+      "teamId": "riyadi",
+      "notes": "All-Domestic; Game 7: 11 pts"
+    },
+    {
+      "id": "maurice-kemp",
+      "name": "Maurice Kemp",
+      "teamId": "riyadi",
+      "notes": "First Team (regular season with Riyadi)"
+    },
+    {
+      "id": "ali-mansour",
+      "name": "Ali Mansour",
+      "nameAr": "علي منصور",
+      "teamId": "riyadi",
+      "notes": "All-Domestic / Honorable Mention"
+    },
+    {
+      "id": "amir-saoud",
+      "name": "Amir Saoud",
+      "nameAr": "أمير سعود",
+      "teamId": "riyadi",
+      "notes": "Honorable Mention; Game 7: 10 pts"
+    },
+    {
+      "id": "paris-bass",
+      "name": "Paris Bass",
+      "teamId": "sagesse",
+      "notes": "League MVP, Top Scorer (27.3 ppg), Import POY, Defensive POY, Forward of the Year"
+    },
+    {
+      "id": "youssef-khayat",
+      "name": "Youssef Khayat",
+      "nameAr": "يوسف خياط",
+      "teamId": "sagesse",
+      "notes": "Domestic Player of the Year; Third Team / All-Domestic"
+    },
+    {
+      "id": "deshawndre-washington",
+      "name": "Deshawndre Washington",
+      "teamId": "sagesse",
+      "notes": "Game 7: 23 pts"
+    },
+    {
+      "id": "sekou-doumbouya",
+      "name": "Sekou Doumbouya",
+      "teamId": "sagesse",
+      "notes": "Game 7: 19 pts"
+    },
+    {
+      "id": "jordan-stevens",
+      "name": "Jordan Stevens",
+      "teamId": "homenetmen",
+      "notes": "Guard of the Year; First Team (~25.6 ppg)"
+    },
+    {
+      "id": "majur-majak",
+      "name": "Majur Majak",
+      "teamId": "antranik",
+      "notes": "Center of the Year; leading rebounder (12.2 rpg); First Team"
+    },
+    {
+      "id": "jeremiah-gambrell-jr",
+      "name": "Jeremiah Gambrell Jr.",
+      "teamId": "antranik",
+      "notes": "First Team; Round 21–22 Player of the Week"
+    },
+    {
+      "id": "kedrian-johnson",
+      "name": "Kedrian Johnson",
+      "teamId": "hoops",
+      "notes": "Second Team; steals leader (2.5 spg)"
+    },
+    {
+      "id": "aj-english",
+      "name": "AJ English",
+      "teamId": "beirut",
+      "notes": "Second Team; ~25.1 ppg"
+    },
+    {
+      "id": "hadi-el-khatib",
+      "name": "Hadi El Khatib",
+      "nameAr": "هادي الخطيب",
+      "teamId": "maristes",
+      "notes": "Prospect of the Year"
+    },
+    {
+      "id": "desi-washington",
+      "name": "Desi Washington",
+      "teamId": "batroun",
+      "notes": "Assists leader (9.1 apg); Third Team"
+    },
+    {
+      "id": "kenny-wooten-jr",
+      "name": "Kenny Wooten Jr.",
+      "teamId": "central",
+      "notes": "Blocks leader (3.0 bpg); Al Markaziyyah"
+    },
+    {
+      "id": "tyler-bey",
+      "name": "Tyler Bey",
+      "teamId": "homenetmen",
+      "notes": "Honorable Mention"
+    },
+    {
+      "id": "ricky-ledo",
+      "name": "Ricky Ledo",
+      "teamId": "antonine",
+      "notes": "Third Team"
+    },
+    {
+      "id": "glenn-cosey",
+      "name": "Glenn Cosey",
+      "teamId": "antonine",
+      "notes": "Third Team"
+    },
+    {
+      "id": "trazarien-white",
+      "name": "Trazarien White",
+      "teamId": "hoops",
+      "notes": "Third Team"
+    },
+    {
+      "id": "perrin-buford",
+      "name": "Perrin Buford",
+      "teamId": "riyadi",
+      "notes": "Second Team"
+    },
+    {
+      "id": "anyeuri-castillo",
+      "name": "Anyeuri Castillo",
+      "teamId": "central",
+      "notes": "Second Team (Al Markaziyyah)"
+    },
+    {
+      "id": "donte-mcgill",
+      "name": "Donte McGill",
+      "teamId": "central",
+      "notes": "Second Team (Al Markaziyyah)"
+    },
+    {
+      "id": "makye-richards",
+      "name": "Makye Richards",
+      "teamId": "nsa",
+      "notes": "Honorable Mention"
+    },
+    {
+      "id": "kouat-noi",
+      "name": "Kouat Noi",
+      "teamId": "riyadi",
+      "notes": "Game 7: 9 pts"
+    },
+    {
+      "id": "tyrell-harrison",
+      "name": "Tyrell Harrison",
+      "teamId": "sagesse",
+      "notes": "Game 7: 10 pts"
+    },
+    {
+      "id": "gerard-hadidian",
+      "name": "Gerard Hadidian",
+      "nameAr": "جيرارد حديديان",
+      "teamId": "sagesse",
+      "notes": "Game 7: 11 pts"
+    }
+  ],
+  "regularSeasonSampleGames": [
+    {
+      "date": "2025-10-20",
+      "home": "Al Riyadi",
+      "away": "Tadamon Hrajel",
+      "homeScore": 118,
+      "awayScore": 83,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2025-10-25",
+      "home": "Chabab Batroun",
+      "away": "Al Riyadi",
+      "homeScore": 73,
+      "awayScore": 105,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2025-11-02",
+      "home": "Al Riyadi",
+      "away": "NSA",
+      "homeScore": 99,
+      "awayScore": 80,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2025-11-09",
+      "home": "Hoops Club",
+      "away": "Al Riyadi",
+      "homeScore": 81,
+      "awayScore": 105,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2025-11-16",
+      "home": "Al Riyadi",
+      "away": "Champville-Maristes",
+      "homeScore": 84,
+      "awayScore": 78,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2025-12-03",
+      "home": "Antranik",
+      "away": "Al Riyadi",
+      "homeScore": 86,
+      "awayScore": 108,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2025-12-06",
+      "home": "Al Riyadi",
+      "away": "Central Club",
+      "homeScore": 85,
+      "awayScore": 74,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2025-12-14",
+      "home": "Antonine",
+      "away": "Al Riyadi",
+      "homeScore": 100,
+      "awayScore": 108,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2025-12-23",
+      "home": "Al Riyadi",
+      "away": "Homenetmen",
+      "homeScore": 118,
+      "awayScore": 97,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2025-12-28",
+      "home": "Beirut Club",
+      "away": "Al Riyadi",
+      "homeScore": 102,
+      "awayScore": 121,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-01-03",
+      "home": "Al Riyadi",
+      "away": "Sagesse",
+      "homeScore": 122,
+      "awayScore": 114,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com / Wikipedia H2H",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-01-11",
+      "home": "Tadamon Hrajel",
+      "away": "Al Riyadi",
+      "homeScore": 87,
+      "awayScore": 104,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-01-17",
+      "home": "Al Riyadi",
+      "away": "Chabab Batroun",
+      "homeScore": 81,
+      "awayScore": 72,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-01-20",
+      "home": "NSA",
+      "away": "Al Riyadi",
+      "homeScore": 90,
+      "awayScore": 107,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-01-23",
+      "home": "Al Riyadi",
+      "away": "Hoops Club",
+      "homeScore": 103,
+      "awayScore": 73,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-01-29",
+      "home": "Champville-Maristes",
+      "away": "Al Riyadi",
+      "homeScore": 92,
+      "awayScore": 121,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-02-01",
+      "home": "Al Riyadi",
+      "away": "Antranik",
+      "homeScore": 107,
+      "awayScore": 86,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-02-07",
+      "home": "Central Club",
+      "away": "Al Riyadi",
+      "homeScore": 90,
+      "awayScore": 96,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-02-14",
+      "home": "Al Riyadi",
+      "away": "Antonine",
+      "homeScore": 104,
+      "awayScore": 97,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-05-24",
+      "home": "Homenetmen",
+      "away": "Al Riyadi",
+      "homeScore": 126,
+      "awayScore": 125,
+      "winner": "Homenetmen",
+      "source": "riyadi.com",
+      "competition": "LBL regular season",
+      "notes": "Al Riyadi's only regular-season loss (21-1)"
+    },
+    {
+      "date": "2026-05-28",
+      "home": "Al Riyadi",
+      "away": "Beirut Club",
+      "homeScore": 96,
+      "awayScore": 73,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "2026-05-30",
+      "home": "Sagesse",
+      "away": "Al Riyadi",
+      "homeScore": 86,
+      "awayScore": 94,
+      "winner": "Al Riyadi",
+      "source": "riyadi.com / Wikipedia H2H",
+      "competition": "LBL regular season"
+    },
+    {
+      "date": "unknown",
+      "home": "Sagesse",
+      "away": "Hoops Club",
+      "homeScore": 94,
+      "awayScore": 100,
+      "winner": "Hoops Club",
+      "source": "Wikipedia 2025–26 standings H2H matrix",
+      "competition": "LBL regular season",
+      "notes": "Date not found in fetched sources"
+    },
+    {
+      "date": "unknown",
+      "home": "Sagesse",
+      "away": "Homenetmen",
+      "homeScore": 131,
+      "awayScore": 120,
+      "winner": "Sagesse",
+      "source": "Wikipedia 2025–26 standings H2H matrix",
+      "competition": "LBL regular season",
+      "notes": "Date not found in fetched sources"
+    },
+    {
+      "date": "unknown",
+      "home": "Hoops Club",
+      "away": "Antonine",
+      "homeScore": 87,
+      "awayScore": 80,
+      "winner": "Hoops Club",
+      "source": "Wikipedia 2025–26 standings H2H matrix",
+      "competition": "LBL regular season",
+      "notes": "Date not found in fetched sources"
+    },
+    {
+      "date": "unknown",
+      "home": "Central Club",
+      "away": "Sagesse",
+      "homeScore": 100,
+      "awayScore": 95,
+      "winner": "Central Club",
+      "source": "Wikipedia 2025–26 standings H2H matrix",
+      "competition": "LBL regular season",
+      "notes": "Date not found in fetched sources"
+    },
+    {
+      "date": "unknown",
+      "home": "Antranik",
+      "away": "Champville-Maristes",
+      "homeScore": 116,
+      "awayScore": 73,
+      "winner": "Antranik",
+      "source": "Wikipedia 2025–26 standings H2H matrix",
+      "competition": "LBL regular season",
+      "notes": "Date not found in fetched sources"
+    },
+    {
+      "date": "unknown",
+      "home": "Antonine",
+      "away": "Tadamon Hrajel",
+      "homeScore": 95,
+      "awayScore": 49,
+      "winner": "Antonine",
+      "source": "Wikipedia 2025–26 standings H2H matrix",
+      "competition": "LBL regular season",
+      "notes": "Date not found in fetched sources"
+    }
+  ]
+}

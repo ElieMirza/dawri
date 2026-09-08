@@ -1,0 +1,65 @@
+{
+  "expo": {
+    "name": "DAWRI - الدوري",
+    "slug": "dawri",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "dawri",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.dawri.lbl",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "DAWRI uses your location to verify check-ins at game venues for earning loyalty points.",
+        "CFBundleLocalizations": ["en", "ar"],
+        "CFBundleDevelopmentRegion": "en"
+      }
+    },
+    "android": {
+      "package": "app.dawri.lbl",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#0a0a0f"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#0a0a0f"
+        }
+      ],
+      [
+        "expo-localization",
+        {}
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "dawri-lbl-placeholder"
+      }
+    },
+    "owner": "elie-mirza",
+    "locales": {
+      "ar": "./i18n/ar.json",
+      "en": "./i18n/en.json"
+    }
+  }
+}
