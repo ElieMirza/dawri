@@ -8,8 +8,8 @@ export const Colors = {
     card: '#1e1e2a',
     cardHighlight: '#252532',
     // Cedar / brick — Lebanese brand primary (not neon emerald)
-    primary: '#00B36B',
-    primaryLight: '#00D47E',
+    primary: '#A63D2F',
+    primaryLight: '#C4543F',
     secondary: '#ffd700',
     accent: '#4a9eff',
     text: '#ffffff',
@@ -18,8 +18,8 @@ export const Colors = {
     border: '#2a2a3a',
     borderLight: '#3a3a4a',
     // ONE muted green reserved for earned / attended points only
-    success: '#00B36B',
-    earned: '#00B36B',
+    success: '#2F7D4A',
+    earned: '#2F7D4A',
     warning: '#ffc107',
     error: '#ff5252',
     riyadi: '#006633',
@@ -153,7 +153,7 @@ export function formatSafeDate(
   locale: string,
   opts?: Intl.DateTimeFormatOptions
 ): string {
-  if (!dateStr || dateStr === 'unknown' || dateStr === 'TBD' || dateStr === 'n/a') {
+  if (!dateStr || dateStr === 'unknown' || dateStr === 'TBD' || dateStr === 'n/a' || dateStr === 'Date TBA') {
     return locale.startsWith('ar') ? 'تاريخ غير معروف' : 'Date TBA';
   }
   const d = new Date(dateStr);
