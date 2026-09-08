@@ -26,7 +26,7 @@ Arabic names for Hoops (هوبس), Antonine (الأنطوني), Central (الم�
 
 1. **Finals MVP conflict**: Game 7 article → Karim Zeinoun; Asia-Basket awards block → Dusan Miletic. Seed `finals.mvp` = Zeinoun; conflict documented in JSON.
 2. **Standings 4–6 order**: Wikipedia/Flashscore: Antonine, Antranik, Central; Asia-Basket: Antranik, Antonine, Club Central. Seed follows Wikipedia.
-3. **Non–Al Riyadi game dates**: Many H2H scores from the Wikipedia matrix have **no date** in fetched sources — those sample games use `"date": "unknown"`.
+3. **Non–Al Riyadi game dates**: Many H2H scores from the Wikipedia matrix have **no date** in fetched sources — those sample games previously used `"date": "unknown"`; PASS-2 replaced them with approximate mid-season ISO dates (`dateApproximate: true`) and UI still maps unknown/TBA safely to "Date TBA".
 4. **lebanon.basketball**: Fetched but not used for numeric data (no reliable score tables extracted).
 5. **Team colors**: Approximate brand colors for fan-app UI — not taken from an official palette document.
 6. **Arena capacity / alternate venues**: Season page vs league page sometimes differ (e.g. Champville capacity, Batroun/Tadamon venues); both noted where relevant.

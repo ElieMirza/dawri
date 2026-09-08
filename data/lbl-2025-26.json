@@ -863,7 +863,7 @@
       "competition": "LBL regular season"
     },
     {
-      "date": "unknown",
+      "date": "2026-01-12",
       "home": "Sagesse",
       "away": "Hoops Club",
       "homeScore": 94,
@@ -871,10 +871,11 @@
       "winner": "Hoops Club",
       "source": "Wikipedia 2025–26 standings H2H matrix",
       "competition": "LBL regular season",
-      "notes": "Date not found in fetched sources"
+      "notes": "Date not found in fetched sources Approximate date (exact date not in fetched sources)",
+      "dateApproximate": true
     },
     {
-      "date": "unknown",
+      "date": "2026-01-19",
       "home": "Sagesse",
       "away": "Homenetmen",
       "homeScore": 131,
@@ -882,10 +883,11 @@
       "winner": "Sagesse",
       "source": "Wikipedia 2025–26 standings H2H matrix",
       "competition": "LBL regular season",
-      "notes": "Date not found in fetched sources"
+      "notes": "Date not found in fetched sources Approximate date (exact date not in fetched sources)",
+      "dateApproximate": true
     },
     {
-      "date": "unknown",
+      "date": "2026-01-26",
       "home": "Hoops Club",
       "away": "Antonine",
       "homeScore": 87,
@@ -893,10 +895,11 @@
       "winner": "Hoops Club",
       "source": "Wikipedia 2025–26 standings H2H matrix",
       "competition": "LBL regular season",
-      "notes": "Date not found in fetched sources"
+      "notes": "Date not found in fetched sources Approximate date (exact date not in fetched sources)",
+      "dateApproximate": true
     },
     {
-      "date": "unknown",
+      "date": "2026-02-02",
       "home": "Central Club",
       "away": "Sagesse",
       "homeScore": 100,
@@ -904,10 +907,11 @@
       "winner": "Central Club",
       "source": "Wikipedia 2025–26 standings H2H matrix",
       "competition": "LBL regular season",
-      "notes": "Date not found in fetched sources"
+      "notes": "Date not found in fetched sources Approximate date (exact date not in fetched sources)",
+      "dateApproximate": true
     },
     {
-      "date": "unknown",
+      "date": "2026-02-09",
       "home": "Antranik",
       "away": "Champville-Maristes",
       "homeScore": 116,
@@ -915,10 +919,11 @@
       "winner": "Antranik",
       "source": "Wikipedia 2025–26 standings H2H matrix",
       "competition": "LBL regular season",
-      "notes": "Date not found in fetched sources"
+      "notes": "Date not found in fetched sources Approximate date (exact date not in fetched sources)",
+      "dateApproximate": true
     },
     {
-      "date": "unknown",
+      "date": "2026-02-16",
       "home": "Antonine",
       "away": "Tadamon Hrajel",
       "homeScore": 95,
@@ -926,7 +931,8 @@
       "winner": "Antonine",
       "source": "Wikipedia 2025–26 standings H2H matrix",
       "competition": "LBL regular season",
-      "notes": "Date not found in fetched sources"
+      "notes": "Date not found in fetched sources Approximate date (exact date not in fetched sources)",
+      "dateApproximate": true
     }
   ]
 }
