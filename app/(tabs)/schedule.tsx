@@ -12,8 +12,8 @@ type FilterType = 'all' | 'finals' | 'regular';
 
 export default function ScheduleScreen() {
   const { t } = useTranslation();
-  const { isRTL, language } = useApp();
-  const { allGames, teams, getTeamByName } = useData();
+  const { isRTL, language, selectedSeason } = useApp();
+  const { allGames, teams, getTeamByName, season } = useData(selectedSeason);
   const [filter, setFilter] = useState<FilterType>('all');
   const [teamFilter, setTeamFilter] = useState<string | null>(null);
 
@@ -151,9 +151,18 @@ export default function ScheduleScreen() {
       <SafeAreaView style={[styles.safeArea, { backgroundColor: Colors.dark.background }]} edges={['top']}>
         <View style={styles.header}>
           <Text style={[styles.title, isRTL && styles.rtlText]}>{t('schedule.title')}</Text>
-          <Text style={[styles.subtitle, isRTL && styles.rtlText]}>
-            {language === 'ar' ? 'موسم 2025-26' : '2025-26 Season'}
-          </Text>
+          <View style={[styles.subtitleRow, isRTL && styles.rtl]}>
+            <Text style={[styles.subtitle, isRTL && styles.rtlText]}>
+              {language === 'ar' ? `موسم ${season.id}` : `${season.id} Season`}
+            </Text>
+            {season.isArchive && (
+              <View style={styles.archiveBadge}>
+                <Text style={styles.archiveBadgeText}>
+                  {language === 'ar' ? 'API' : 'API'}
+                </Text>
+              </View>
+            )}
+          </View>
         </View>
 
         <View style={styles.filterContainer}>
@@ -266,6 +275,26 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.regular,
     color: Colors.dark.textSecondary,
     marginTop: 2,
+  },
+  subtitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+    marginTop: 2,
+  },
+  archiveBadge: {
+    backgroundColor: Colors.dark.gold + '33',
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 2,
+    borderRadius: BorderRadius.sm,
+    borderWidth: 1,
+    borderColor: Colors.dark.gold + '55',
+  },
+  archiveBadgeText: {
+    fontSize: FontSizes.xs,
+    fontFamily: Fonts.medium,
+    color: Colors.dark.gold,
+    textTransform: 'uppercase',
   },
   rtlText: {
     textAlign: 'right',

@@ -3,11 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, BorderRadius, FontSizes, Fonts } from '@/constants/theme';
+import { useApp } from '@/context/AppContext';
 import { useData } from '@/hooks/useData';
 
 export default function StandingsScreen() {
   const { t } = useTranslation();
-  const { standings, getTeam } = useData();
+  const { selectedSeason, language, isRTL } = useApp();
+  const { standings, getTeam, season } = useData(selectedSeason);
 
   const getStatusBadge = (status?: string) => {
     switch (status) {
@@ -39,7 +41,17 @@ export default function StandingsScreen() {
     <View style={styles.container}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.content}>
         <Text style={styles.title}>{t('standings.title')}</Text>
-        <Text style={styles.subtitle}>{t('standings.season')}</Text>
+        <View style={[styles.subtitleRow, isRTL && styles.rtl]}>
+          <Text style={styles.subtitle}>
+            {language === 'ar' ? `موسم ${season.id}` : `${season.id} Season`}
+            {!season.isArchive ? (language === 'ar' ? ' (نهائي)' : ' (Final)') : ''}
+          </Text>
+          {season.isArchive && (
+            <View style={styles.archiveBadge}>
+              <Text style={styles.archiveBadgeText}>API</Text>
+            </View>
+          )}
+        </View>
 
         {/* Table Header */}
         <View style={styles.tableHeader}>
@@ -116,8 +128,30 @@ const styles = StyleSheet.create({
     color: Colors.dark.textMuted,
     fontSize: FontSizes.sm,
     fontFamily: Fonts.regular,
+  },
+  subtitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
     marginBottom: Spacing.lg,
     paddingHorizontal: Spacing.sm,
+  },
+  rtl: {
+    flexDirection: 'row-reverse',
+  },
+  archiveBadge: {
+    backgroundColor: Colors.dark.gold + '33',
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 2,
+    borderRadius: BorderRadius.sm,
+    borderWidth: 1,
+    borderColor: Colors.dark.gold + '55',
+  },
+  archiveBadgeText: {
+    fontSize: FontSizes.xs,
+    fontFamily: Fonts.medium,
+    color: Colors.dark.gold,
+    textTransform: 'uppercase',
   },
   tableHeader: {
     flexDirection: 'row',

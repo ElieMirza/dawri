@@ -2,16 +2,33 @@
 
 A store-ready mobile fan app for the Lebanese Basketball League (LBL / Decathlon Lebanese Basketball Championship). Built with Expo SDK 57, React Native, and TypeScript.
 
-**Owner:** Elie Mirza
+**Owner:** Elie Mirza  
+**Live Demo:** https://dawri-expo.vercel.app
+
+## ⚠️ Data Architecture Note
+
+This app uses a **hybrid data model**:
+
+| Source | Season | Status |
+|--------|--------|--------|
+| `data/lbl-2025-26.json` | 2025-26 | Seed file (hardcoded finals story) |
+| `data/lbl-2024-25.api.json` | 2024-25 | API-Sports (build-time fetch) |
+| `data/cedars.json` | — | Cedars NT (TheSportsDB) |
+
+**Important:** The free API-Sports tier does **not** provide live 2025-26 season data. The 2025-26 data is a curated seed file based on public records. Use the season toggle to view 2024-25 API data.
+
+See [`docs/DATA.md`](./docs/DATA.md) for full details.
 
 ## Features
 
 - **Follow the League:** Standings, schedule/results, teams, rosters, and player highlights
-- **Real 2025-26 Season Data:** Al Riyadi are champions (20th title), beat Sagesse 4-3 in a thrilling finals series
+- **2025-26 Season Story:** Al Riyadi are champions (20th title), beat Sagesse 4-3 in a thrilling finals series
+- **2024-25 Archive:** API-Sports data for historical comparison
+- **Cedars Corner:** Lebanese National Team fixtures/results
 - **Fan Loyalty Loop:** Check in at games to earn points and tier progress (Fan → Regular → Ultra → Legend)
 - **Rewards Catalog:** Redeem points for merchandise, food, and exclusive experiences (demo partners)
 - **Bilingual:** Full English and Arabic (RTL) support with language toggle
-- **Dark Mode UI:** Premium sports-themed design inspired by Qatar Hayyoh app
+- **Dark Mode UI:** Premium cedar/brick themed design
 
 ## Screenshots
 
@@ -55,14 +72,24 @@ The web demo runs on `http://localhost:8081` by default.
 │   │   ├── schedule.tsx # Game schedule
 │   │   ├── standings.tsx# Standings table
 │   │   ├── rewards.tsx  # Loyalty & rewards
-│   │   └── more.tsx     # Settings
+│   │   └── more.tsx     # Settings + Cedars
 │   ├── team/[id].tsx    # Team detail
 │   ├── game/[id].tsx    # Game detail
 │   ├── about.tsx        # About screen
 │   └── privacy.tsx      # Privacy policy
 ├── data/
-│   ├── lbl-2025-26.json # Season data (verified)
-│   └── SOURCES.md       # Data attribution
+│   ├── lbl-2025-26.json     # 2025-26 seed (manual)
+│   ├── lbl-2024-25.api.json # 2024-25 from API-Sports
+│   ├── cedars.json          # Cedars NT from TheSportsDB
+│   └── SOURCES.md           # Data attribution
+├── docs/                # Documentation
+│   ├── STATUS.md        # Project status
+│   ├── DATA.md          # Data sources
+│   ├── GO-PUBLIC.md     # Pre-public checklist
+│   └── BACKLOG.md       # Feature backlog
+├── scripts/             # Build/data scripts
+│   ├── fetch-api-sports.mjs  # API-Sports fetcher
+│   └── fetch-cedars.mjs      # TheSportsDB fetcher
 ├── i18n/                # Translations
 ├── context/             # App state (React Context)
 ├── hooks/               # Data hooks
@@ -70,16 +97,56 @@ The web demo runs on `http://localhost:8081` by default.
 └── assets/              # Images, icons
 ```
 
-## Season Data (2025-26)
+## Documentation
 
-All data is sourced from public records:
+| Document | Description |
+|----------|-------------|
+| [`docs/STATUS.md`](./docs/STATUS.md) | Living project status, architecture, milestones |
+| [`docs/DATA.md`](./docs/DATA.md) | Data sources truth table, API details |
+| [`docs/GO-PUBLIC.md`](./docs/GO-PUBLIC.md) | Pre-public / federation demo checklist |
+| [`docs/BACKLOG.md`](./docs/BACKLOG.md) | Prioritized feature backlog |
+| [`data/SOURCES.md`](./data/SOURCES.md) | Attribution for 2025-26 seed data |
+
+## Season Data
+
+### 2025-26 (Seed File)
+All data is sourced from public records and hardcoded at build:
 - **Champion:** Al Riyadi (20th title)
 - **Finals:** Al Riyadi 4-3 Sagesse
 - **Finals MVP:** Karim Zeinoun (32 pts in Game 7)
 - **League MVP:** Paris Bass (Sagesse)
 - **Season:** Oct 2025 - Aug 2026 (paused Mar-May 2026)
 
-See `data/SOURCES.md` for full attribution.
+### 2024-25 (API Archive)
+Fetched from API-Sports at build time:
+- League 409 (Division 1 Lebanon)
+- 12-team standings
+- ~150 games with scores
+
+### Cedars (National Team)
+Fetched from TheSportsDB:
+- Team 146103
+- Recent fixtures/results
+
+See `data/SOURCES.md` for full 2025-26 attribution.
+
+## Refreshing Data
+
+To refresh API data (2024-25 standings/games and Cedars fixtures):
+
+```bash
+# Copy .env.example to .env and add your API-Sports key
+cp .env.example .env
+
+# Refresh all API data
+npm run data:refresh
+
+# Or refresh individually
+npm run data:api-sports    # 2024-25 from API-Sports
+npm run data:cedars        # Cedars from TheSportsDB
+```
+
+**Note:** The 2025-26 seed file (`lbl-2025-26.json`) is manually curated and not refreshed by these scripts.
 
 ## Building for Production
 

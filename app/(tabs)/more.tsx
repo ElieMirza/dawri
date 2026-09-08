@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Pressable, Switch, Share, Platform } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable, Switch, Share, Platform, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
-import { Colors, Spacing, BorderRadius, FontSizes, FontWeights, Fonts, fontFamily } from '../../constants/theme';
+import { Colors, Spacing, BorderRadius, FontSizes, FontWeights, Fonts, fontFamily, formatSafeDate } from '../../constants/theme';
 import { useApp } from '../../context/AppContext';
-import { useData } from '../../hooks/useData';
+import { useData, Season } from '../../hooks/useData';
 
 export default function MoreScreen() {
   const { t } = useTranslation();
-  const { isRTL, language, toggleLanguage, favoriteTeam, setFavoriteTeam } = useApp();
-  const { teams } = useData();
+  const { isRTL, language, toggleLanguage, favoriteTeam, setFavoriteTeam, selectedSeason, setSelectedSeason } = useApp();
+  const { teams, cedars, availableSeasons, has2425Data } = useData(selectedSeason);
   const [showTeams, setShowTeams] = useState(false);
+  const [showSeasons, setShowSeasons] = useState(false);
 
   const ff = (w: 'regular' | 'medium' | 'semibold' | 'bold' | 'display' = 'regular') => ({
     fontFamily: fontFamily(language, w),
@@ -39,6 +40,22 @@ export default function MoreScreen() {
     } catch {
       /* user cancelled */
     }
+  };
+
+  const formatEventDate = (dateStr: string) => {
+    return formatSafeDate(dateStr, language === 'ar' ? 'ar-LB' : 'en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  };
+
+  const getSeasonLabel = (season: Season) => {
+    if (season === '2025-26') {
+      return language === 'ar' ? '2025-26 (الموسم الحالي)' : '2025-26 (Current)';
+    }
+    return language === 'ar' ? '2024-25 (أرشيف API)' : '2024-25 (API Archive)';
   };
 
   return (
@@ -96,6 +113,185 @@ export default function MoreScreen() {
             <Text style={[styles.brandTagline, ff('regular')]}>{t('app.tagline')}</Text>
             <Text style={[styles.version, ff('regular')]}>{t('more.version')} 1.0.0</Text>
           </View>
+
+          {/* Cedars National Team Section */}
+          {cedars?.team && (
+            <View style={styles.section}>
+              <Text style={[styles.sectionTitle, ff('bold'), isRTL && styles.rtlText]}>
+                {language === 'ar' ? '🇱🇧 منتخب الأرز' : '🇱🇧 Cedars Corner'}
+              </Text>
+              
+              <View style={styles.cedarsCard}>
+                <View style={[styles.cedarsHeader, isRTL && styles.rtl]}>
+                  {cedars.team.badge && (
+                    <Image 
+                      source={{ uri: cedars.team.badge }} 
+                      style={styles.cedarsBadge}
+                      resizeMode="contain"
+                    />
+                  )}
+                  <View style={[styles.cedarsInfo, isRTL && { alignItems: 'flex-end' }]}>
+                    <Text style={[styles.cedarsName, ff('bold'), isRTL && styles.rtlText]}>
+                      {language === 'ar' ? 'منتخب لبنان لكرة السلة' : 'Lebanon Basketball'}
+                    </Text>
+                    <Text style={[styles.cedarsLeague, ff('regular'), isRTL && styles.rtlText]}>
+                      {cedars.team.league}
+                    </Text>
+                  </View>
+                </View>
+
+                {cedars.events.upcoming.length > 0 && (
+                  <View style={styles.cedarsEventSection}>
+                    <Text style={[styles.cedarsEventTitle, ff('semibold'), isRTL && styles.rtlText]}>
+                      {language === 'ar' ? 'القادم' : 'Upcoming'}
+                    </Text>
+                    {cedars.events.upcoming.slice(0, 2).map((event) => (
+                      <View key={event.id} style={[styles.cedarsEvent, isRTL && styles.rtl]}>
+                        <View style={styles.cedarsEventDate}>
+                          <Text style={[styles.cedarsEventDateText, ff('medium')]}>
+                            {formatEventDate(event.date)}
+                          </Text>
+                        </View>
+                        <View style={[styles.cedarsEventDetails, isRTL && { alignItems: 'flex-end' }]}>
+                          <Text style={[styles.cedarsEventTeams, ff('semibold'), isRTL && styles.rtlText]}>
+                            {event.homeTeam} vs {event.awayTeam}
+                          </Text>
+                          <Text style={[styles.cedarsEventLeague, ff('regular'), isRTL && styles.rtlText]}>
+                            {event.league}
+                          </Text>
+                        </View>
+                      </View>
+                    ))}
+                  </View>
+                )}
+
+                {cedars.events.past.length > 0 && (
+                  <View style={styles.cedarsEventSection}>
+                    <Text style={[styles.cedarsEventTitle, ff('semibold'), isRTL && styles.rtlText]}>
+                      {language === 'ar' ? 'النتائج' : 'Recent Results'}
+                    </Text>
+                    {cedars.events.past.slice(0, 2).map((event) => (
+                      <View key={event.id} style={[styles.cedarsEvent, isRTL && styles.rtl]}>
+                        <View style={styles.cedarsEventDate}>
+                          <Text style={[styles.cedarsEventDateText, ff('medium')]}>
+                            {formatEventDate(event.date)}
+                          </Text>
+                        </View>
+                        <View style={[styles.cedarsEventDetails, isRTL && { alignItems: 'flex-end' }]}>
+                          <Text style={[styles.cedarsEventTeams, ff('semibold'), isRTL && styles.rtlText]}>
+                            {event.homeTeam} {event.homeScore} - {event.awayScore} {event.awayTeam}
+                          </Text>
+                          <Text style={[styles.cedarsEventLeague, ff('regular'), isRTL && styles.rtlText]}>
+                            {event.league}
+                          </Text>
+                        </View>
+                      </View>
+                    ))}
+                  </View>
+                )}
+
+                {cedars.roster.length > 0 && (
+                  <View style={styles.cedarsRosterPreview}>
+                    <Text style={[styles.cedarsRosterTitle, ff('medium'), isRTL && styles.rtlText]}>
+                      {language === 'ar' ? 'لاعب مميز' : 'Featured Player'}
+                    </Text>
+                    {cedars.roster.slice(0, 1).map((player) => (
+                      <View key={player.id} style={[styles.cedarsPlayer, isRTL && styles.rtl]}>
+                        {player.thumb && (
+                          <Image 
+                            source={{ uri: player.thumb }} 
+                            style={styles.cedarsPlayerThumb}
+                          />
+                        )}
+                        <View style={[styles.cedarsPlayerInfo, isRTL && { alignItems: 'flex-end' }]}>
+                          <Text style={[styles.cedarsPlayerName, ff('semibold'), isRTL && styles.rtlText]}>
+                            {player.name}
+                          </Text>
+                          <Text style={[styles.cedarsPlayerPos, ff('regular'), isRTL && styles.rtlText]}>
+                            {player.position} {player.number ? `#${player.number}` : ''}
+                          </Text>
+                        </View>
+                      </View>
+                    ))}
+                  </View>
+                )}
+
+                <Text style={[styles.cedarsNote, ff('regular')]}>
+                  {language === 'ar' 
+                    ? 'البيانات من TheSportsDB • قد لا تكون قائمة اللاعبين كاملة'
+                    : 'Data from TheSportsDB • Roster may be incomplete'}
+                </Text>
+              </View>
+            </View>
+          )}
+
+          {/* Season Toggle */}
+          {availableSeasons.length > 1 && (
+            <View style={styles.section}>
+              <Text style={[styles.sectionTitle, ff('bold'), isRTL && styles.rtlText]}>
+                {language === 'ar' ? 'بيانات الموسم' : 'Season Data'}
+              </Text>
+              
+              <Pressable
+                style={[styles.settingRow, isRTL && styles.rtl]}
+                onPress={() => setShowSeasons((v) => !v)}
+              >
+                <View style={[styles.settingIcon, { backgroundColor: Colors.dark.gold + '22' }]}>
+                  <Ionicons name="time" size={20} color={Colors.dark.gold} />
+                </View>
+                <View style={[styles.settingContent, isRTL && { alignItems: 'flex-end', marginLeft: 0, marginRight: Spacing.md }]}>
+                  <Text style={[styles.settingLabel, ff('medium'), isRTL && styles.rtlText]}>
+                    {language === 'ar' ? 'الموسم المحدد' : 'Selected Season'}
+                  </Text>
+                  <Text style={[styles.settingValue, ff('regular'), isRTL && styles.rtlText]}>
+                    {getSeasonLabel(selectedSeason)}
+                  </Text>
+                </View>
+                <Ionicons name={showSeasons ? 'chevron-up' : 'chevron-forward'} size={20} color={Colors.dark.textMuted} />
+              </Pressable>
+
+              {showSeasons && (
+                <View style={styles.teamPicker}>
+                  {availableSeasons.map((s) => {
+                    const active = selectedSeason === s;
+                    return (
+                      <Pressable
+                        key={s}
+                        style={[styles.teamOption, active && styles.teamOptionActive, isRTL && styles.rtl]}
+                        onPress={() => {
+                          setSelectedSeason(s);
+                          setShowSeasons(false);
+                        }}
+                      >
+                        <View style={[styles.teamDot, { backgroundColor: s === '2025-26' ? Colors.dark.primary : Colors.dark.gold }]} />
+                        <Text
+                          style={[
+                            styles.teamOptionText,
+                            ff('medium'),
+                            active && styles.teamOptionTextActive,
+                            { flex: 1 },
+                            isRTL && styles.rtlText,
+                          ]}
+                        >
+                          {getSeasonLabel(s)}
+                        </Text>
+                        {active && <Ionicons name="checkmark" size={18} color={Colors.dark.primary} />}
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              )}
+
+              <View style={styles.seasonNote}>
+                <Ionicons name="information-circle-outline" size={16} color={Colors.dark.textMuted} />
+                <Text style={[styles.seasonNoteText, ff('regular'), isRTL && styles.rtlText]}>
+                  {language === 'ar' 
+                    ? '2025-26 من ملف محلي • 2024-25 من API-Sports'
+                    : '2025-26 from seed file • 2024-25 from API-Sports'}
+                </Text>
+              </View>
+            </View>
+          )}
 
           <View style={styles.section}>
             <Text style={[styles.sectionTitle, ff('bold'), isRTL && styles.rtlText]}>
@@ -379,5 +575,130 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: Spacing.sm,
     lineHeight: 18,
+  },
+  // Cedars section styles
+  cedarsCard: {
+    backgroundColor: Colors.dark.card,
+    borderRadius: BorderRadius.lg,
+    padding: Spacing.md,
+    borderWidth: 1,
+    borderColor: Colors.dark.border,
+  },
+  cedarsHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.md,
+    marginBottom: Spacing.md,
+    paddingBottom: Spacing.md,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.dark.border,
+  },
+  cedarsBadge: {
+    width: 48,
+    height: 48,
+    borderRadius: 8,
+  },
+  cedarsInfo: {
+    flex: 1,
+  },
+  cedarsName: {
+    fontSize: FontSizes.lg,
+    color: Colors.dark.text,
+  },
+  cedarsLeague: {
+    fontSize: FontSizes.sm,
+    color: Colors.dark.textSecondary,
+    marginTop: 2,
+  },
+  cedarsEventSection: {
+    marginBottom: Spacing.md,
+  },
+  cedarsEventTitle: {
+    fontSize: FontSizes.sm,
+    color: Colors.dark.textMuted,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    marginBottom: Spacing.sm,
+  },
+  cedarsEvent: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: Spacing.sm,
+    paddingVertical: Spacing.xs,
+  },
+  cedarsEventDate: {
+    minWidth: 80,
+  },
+  cedarsEventDateText: {
+    fontSize: FontSizes.xs,
+    color: Colors.dark.textMuted,
+  },
+  cedarsEventDetails: {
+    flex: 1,
+  },
+  cedarsEventTeams: {
+    fontSize: FontSizes.md,
+    color: Colors.dark.text,
+  },
+  cedarsEventLeague: {
+    fontSize: FontSizes.xs,
+    color: Colors.dark.textSecondary,
+    marginTop: 2,
+  },
+  cedarsRosterPreview: {
+    marginBottom: Spacing.md,
+    paddingTop: Spacing.sm,
+    borderTopWidth: 1,
+    borderTopColor: Colors.dark.border,
+  },
+  cedarsRosterTitle: {
+    fontSize: FontSizes.sm,
+    color: Colors.dark.textMuted,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    marginBottom: Spacing.sm,
+  },
+  cedarsPlayer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.md,
+  },
+  cedarsPlayerThumb: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: Colors.dark.surfaceElevated,
+  },
+  cedarsPlayerInfo: {
+    flex: 1,
+  },
+  cedarsPlayerName: {
+    fontSize: FontSizes.md,
+    color: Colors.dark.text,
+  },
+  cedarsPlayerPos: {
+    fontSize: FontSizes.sm,
+    color: Colors.dark.textSecondary,
+    marginTop: 2,
+  },
+  cedarsNote: {
+    fontSize: FontSizes.xs,
+    color: Colors.dark.textMuted,
+    textAlign: 'center',
+    fontStyle: 'italic',
+    marginTop: Spacing.sm,
+  },
+  // Season toggle styles
+  seasonNote: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.xs,
+    paddingHorizontal: Spacing.sm,
+    marginTop: Spacing.xs,
+  },
+  seasonNoteText: {
+    fontSize: FontSizes.xs,
+    color: Colors.dark.textMuted,
+    flex: 1,
   },
 });
