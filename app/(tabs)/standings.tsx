@@ -1,12 +1,13 @@
 import { View, Text, ScrollView, StyleSheet, Pressable } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, BorderRadius, FontSizes } from '@/constants/theme';
 import { useData } from '@/hooks/useData';
 
 export default function StandingsScreen() {
   const { t } = useTranslation();
+  const router = useRouter();
   const { standings, getTeam } = useData();
 
   const getStatusBadge = (status: string) => {
@@ -14,7 +15,7 @@ export default function StandingsScreen() {
       case 'champion':
         return (
           <View style={[styles.statusBadge, styles.championBadge]}>
-            <Ionicons name="trophy" size={10} color={Colors.dark.gold} />
+            <Ionicons name="trophy" size={10} color={Colors.dark.gold} style={styles.trophyIcon} />
             <Text style={[styles.statusText, styles.championText]}>{t('standings.champion')}</Text>
           </View>
         );
@@ -57,34 +58,34 @@ export default function StandingsScreen() {
           if (!team) return null;
 
           return (
-            <Link key={standing.teamId} href={`/team/${team.id}`} asChild>
-              <Pressable
-                style={[
-                  styles.tableRow,
-                  standing.status === 'champion' && styles.championRow,
-                  standing.status === 'runner-up' && styles.runnerUpRow,
-                ]}
-              >
-                <Text style={[styles.cell, styles.rankCell, styles.rankText]}>
-                  {standing.rank}
-                </Text>
-                <View style={[styles.teamCell, styles.teamContent]}>
-                  <View>
-                    <Text style={styles.teamNameEn}>{team.nameEn}</Text>
-                    <Text style={styles.teamNameAr}>{team.nameAr}</Text>
-                  </View>
-                  {getStatusBadge(standing.status)}
+            <Pressable
+              key={standing.teamId}
+              style={[
+                styles.tableRow,
+                standing.status === 'champion' && styles.championRow,
+                standing.status === 'runner-up' && styles.runnerUpRow,
+              ]}
+              onPress={() => router.push(`/team/${team.id}`)}
+            >
+              <Text style={[styles.cell, styles.rankCell, styles.rankText]}>
+                {standing.rank}
+              </Text>
+              <View style={[styles.teamCell, styles.teamContent]}>
+                <View>
+                  <Text style={styles.teamNameEn}>{team.nameEn}</Text>
+                  <Text style={styles.teamNameAr}>{team.nameAr}</Text>
                 </View>
-                <Text style={[styles.cell, styles.statCell]}>{standing.played}</Text>
-                <Text style={[styles.cell, styles.statCell, styles.winsText]}>{standing.wins}</Text>
-                <Text style={[styles.cell, styles.statCell, styles.lossesText]}>
-                  {standing.losses}
-                </Text>
-                <Text style={[styles.cell, styles.statCell, styles.pointsText]}>
-                  {standing.points}
-                </Text>
-              </Pressable>
-            </Link>
+                {standing.status ? getStatusBadge(standing.status) : null}
+              </View>
+              <Text style={[styles.cell, styles.statCell]}>{standing.played}</Text>
+              <Text style={[styles.cell, styles.statCell, styles.winsText]}>{standing.wins}</Text>
+              <Text style={[styles.cell, styles.statCell, styles.lossesText]}>
+                {standing.losses}
+              </Text>
+              <Text style={[styles.cell, styles.statCell, styles.pointsText]}>
+                {standing.points}
+              </Text>
+            </Pressable>
           );
         })}
       </ScrollView>
@@ -204,10 +205,12 @@ const styles = StyleSheet.create({
   statusBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 2,
     paddingVertical: 2,
     paddingHorizontal: Spacing.xs,
     borderRadius: BorderRadius.sm,
+  },
+  trophyIcon: {
+    marginRight: 2,
   },
   championBadge: {
     backgroundColor: 'rgba(255, 215, 0, 0.15)',
