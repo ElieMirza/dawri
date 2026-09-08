@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import data from '../data/lbl-2025-26.json';
+const data = require('../data/lbl-2025-26.json');
 
 export type Team = typeof data.teams[number];
 export type Standing = typeof data.standings[number];
