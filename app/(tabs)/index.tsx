@@ -10,8 +10,8 @@ import { useData } from '../../hooks/useData';
 
 export default function HomeScreen() {
   const { t } = useTranslation();
-  const { favoriteTeam, points, getTier, getTierProgress, isRTL, language } = useApp();
-  const { teams, finals, getTeam, allGames } = useData();
+  const { favoriteTeam, points, getTier, getTierProgress, isRTL, language, selectedSeason } = useApp();
+  const { teams, finals, getTeam, allGames, season } = useData(selectedSeason);
   const tier = getTier();
   const tierProgress = getTierProgress();
 
@@ -61,9 +61,18 @@ export default function HomeScreen() {
               <Text style={[styles.appName, isRTL && styles.rtlText]}>
                 {language === 'ar' ? 'الدوري' : 'DAWRI'}
               </Text>
-              <Text style={[styles.tagline, isRTL && styles.rtlText]}>
-                {t('app.tagline')}
-              </Text>
+              <View style={[styles.taglineRow, isRTL && styles.rtl]}>
+                <Text style={[styles.tagline, isRTL && styles.rtlText]}>
+                  {t('app.tagline')}
+                </Text>
+                {season.isArchive && (
+                  <View style={styles.archiveBadge}>
+                    <Text style={styles.archiveBadgeText}>
+                      {language === 'ar' ? 'أرشيف' : 'Archive'}
+                    </Text>
+                  </View>
+                )}
+              </View>
             </View>
             <Pressable style={styles.pointsChip} onPress={() => router.push('/rewards')}>
               <Ionicons name="star" size={14} color={Colors.dark.primary} />
@@ -337,6 +346,26 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.regular,
     color: Colors.dark.textSecondary,
     marginTop: 2,
+  },
+  taglineRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+    marginTop: 2,
+  },
+  archiveBadge: {
+    backgroundColor: Colors.dark.gold + '33',
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 2,
+    borderRadius: BorderRadius.sm,
+    borderWidth: 1,
+    borderColor: Colors.dark.gold + '55',
+  },
+  archiveBadgeText: {
+    fontSize: FontSizes.xs,
+    fontFamily: Fonts.medium,
+    color: Colors.dark.gold,
+    textTransform: 'uppercase',
   },
   pointsChip: {
     flexDirection: 'row',

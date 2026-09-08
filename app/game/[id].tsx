@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, Spacing, BorderRadius, FontSizes, FontWeights, Shadows } from '../../constants/theme';
+import { Colors, Spacing, BorderRadius, FontSizes, FontWeights, Shadows, formatSafeDate } from '../../constants/theme';
 import { useApp } from '../../context/AppContext';
 import { useData } from '../../hooks/useData';
 

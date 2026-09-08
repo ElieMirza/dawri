@@ -1,0 +1,21 @@
+{
+  "fetchedAt": null,
+  "source": "API-Sports Basketball",
+  "sourceUrl": "https://api-sports.io/",
+  "league": {
+    "id": 409,
+    "name": "Division 1 Lebanon",
+    "country": "Lebanon"
+  },
+  "season": "2024-2025",
+  "teams": [],
+  "standings": [],
+  "games": [],
+  "meta": {
+    "teamsCount": 0,
+    "standingsCount": 0,
+    "gamesCount": 0
+  },
+  "placeholder": true,
+  "note": "Run 'API_SPORTS_KEY=xxx npm run data:api-sports' to populate with real data"
+}

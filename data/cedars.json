@@ -1,0 +1,131 @@
+{
+  "fetchedAt": "2026-09-08T15:31:14.152Z",
+  "source": "TheSportsDB",
+  "sourceUrl": "https://www.thesportsdb.com/",
+  "apiKey": "123",
+  "apiKeyNote": "This free key is safe for client-side use",
+  "team": {
+    "id": "146103",
+    "name": "Lebanon Basketball",
+    "nameAlt": "",
+    "sport": "Basketball",
+    "league": "FIBA Basketball World Cup",
+    "country": "Lebanon",
+    "badge": "https://r2.thesportsdb.com/images/media/team/badge/ejglj51704636514.png",
+    "logo": "https://r2.thesportsdb.com/images/media/team/logo/6kvxcd1704636520.png",
+    "banner": null,
+    "stadium": "",
+    "capacity": "0",
+    "website": "",
+    "facebook": "",
+    "twitter": "",
+    "instagram": "",
+    "description": "The Lebanese national basketball team (French: Équipe du Liban de basket-ball) is the basketball team of men representing Lebanon in international competitions. Lebanon has been considered one of the top teams in the FIBA Asia sector after coming runners up on three occasions during the 2001 FIBA Asia Championship, the 2005 FIBA Asia Championship and the 2007 FIBA Asia Championship.\r\n\r\nIn 2013, Lebanon was banned by FIBA in all sanctioned events after political interventions in Lebanese basketball. Therefore, Lebanon didn't participate in the 2013 FIBA Asia Championship missing the chance to qualify to the 2014 FIBA Basketball World Cup for the fourth time in a row. The ban was then removed in early 2014 after the election of a new basketball federation.",
+    "formedYear": "1947"
+  },
+  "events": {
+    "all": [
+      {
+        "id": "2519426",
+        "name": "Lebanon Basketball vs Japan Basketball",
+        "filename": "FIBA Basketball World Cup 2026-11-26 Lebanon Basketball vs Japan Basketball",
+        "sport": "Basketball",
+        "league": "FIBA Basketball World Cup",
+        "season": "2027",
+        "date": "2026-11-26",
+        "time": "11:00:00",
+        "venue": "",
+        "city": null,
+        "country": "Lebanon",
+        "homeTeam": "Lebanon Basketball",
+        "awayTeam": "Japan Basketball",
+        "status": "NS",
+        "thumb": "https://www.thesportsdb.com/images/media/event/thumb/k12c4r1787851870.jpg"
+      },
+      {
+        "id": "2519406",
+        "name": "Lebanon Basketball vs South Korea Basketball",
+        "filename": "FIBA Basketball World Cup 2026-08-27 Lebanon Basketball vs South Korea Basketball",
+        "sport": "Basketball",
+        "league": "FIBA Basketball World Cup",
+        "season": "2027",
+        "date": "2026-08-27",
+        "time": "18:00:00",
+        "venue": "",
+        "city": "",
+        "country": "Lebanon",
+        "homeTeam": "Lebanon Basketball",
+        "awayTeam": "South Korea Basketball",
+        "homeScore": 93,
+        "awayScore": 74,
+        "status": "FT",
+        "thumb": "https://www.thesportsdb.com/images/media/event/thumb/guerjz1787851868.jpg",
+        "description": ""
+      }
+    ],
+    "past": [
+      {
+        "id": "2519406",
+        "name": "Lebanon Basketball vs South Korea Basketball",
+        "filename": "FIBA Basketball World Cup 2026-08-27 Lebanon Basketball vs South Korea Basketball",
+        "sport": "Basketball",
+        "league": "FIBA Basketball World Cup",
+        "season": "2027",
+        "date": "2026-08-27",
+        "time": "18:00:00",
+        "venue": "",
+        "city": "",
+        "country": "Lebanon",
+        "homeTeam": "Lebanon Basketball",
+        "awayTeam": "South Korea Basketball",
+        "homeScore": 93,
+        "awayScore": 74,
+        "status": "FT",
+        "thumb": "https://www.thesportsdb.com/images/media/event/thumb/guerjz1787851868.jpg",
+        "description": ""
+      }
+    ],
+    "upcoming": [
+      {
+        "id": "2519426",
+        "name": "Lebanon Basketball vs Japan Basketball",
+        "filename": "FIBA Basketball World Cup 2026-11-26 Lebanon Basketball vs Japan Basketball",
+        "sport": "Basketball",
+        "league": "FIBA Basketball World Cup",
+        "season": "2027",
+        "date": "2026-11-26",
+        "time": "11:00:00",
+        "venue": "",
+        "city": null,
+        "country": "Lebanon",
+        "homeTeam": "Lebanon Basketball",
+        "awayTeam": "Japan Basketball",
+        "status": "NS",
+        "thumb": "https://www.thesportsdb.com/images/media/event/thumb/k12c4r1787851870.jpg"
+      }
+    ]
+  },
+  "roster": [
+    {
+      "id": "34220377",
+      "name": "Wael Arakji",
+      "nationality": "Lebanon",
+      "position": "Point Guard",
+      "height": "1.92 m (6 ft 4 in)",
+      "weight": "90 kg (198 lb)",
+      "birthDate": "1994-09-04",
+      "birthLocation": "Beirut, Lebanon",
+      "description": "Wael Arakji (Arabic: وائل عرقجي; born 4 September 1994) is a Lebanese basketball player for Lebanese Basketball League club Al Riyadi Club Beirut and the Lebanon national team. He is nicknamed \"the Fearsome\" (Arabic: الرهيب, romanized: al-rahib).\r\n\r\nAt the club level, he also played in the Chinese Basketball Association and participated in the NBA Summer League for the Dallas Mavericks in 2019. For the national team, Arakji won the MVP award at the 2022 FIBA Asia Cup, where Lebanon finished runners-up.",
+      "thumb": "https://r2.thesportsdb.com/images/media/player/thumb/w9bg7b1694263084.jpg",
+      "cutout": "https://r2.thesportsdb.com/images/media/player/cutout/4s7mer1746355254.png",
+      "number": "16"
+    }
+  ],
+  "rosterNote": "TheSportsDB roster data for national teams is often incomplete. Consider manual curation.",
+  "meta": {
+    "eventsCount": 2,
+    "pastEventsCount": 1,
+    "upcomingEventsCount": 1,
+    "rosterCount": 1
+  }
+}

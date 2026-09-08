@@ -46,7 +46,10 @@
     "build:ios": "eas build --platform ios",
     "build:all": "eas build --platform all",
     "vercel-build": "npx expo export -p web",
-    "build": "npx expo export -p web"
+    "build": "npx expo export -p web",
+    "data:api-sports": "node scripts/fetch-api-sports.mjs",
+    "data:cedars": "node scripts/fetch-cedars.mjs",
+    "data:refresh": "npm run data:cedars && echo 'Note: data:api-sports requires API_SPORTS_KEY env var' && (test -n \"$API_SPORTS_KEY\" && npm run data:api-sports || echo 'Skipping API-Sports (no key)')"
   },
   "private": true
 }

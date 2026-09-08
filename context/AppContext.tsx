@@ -10,12 +10,15 @@ interface CheckIn {
   points: number;
 }
 
+type Season = '2025-26' | '2024-25';
+
 interface AppState {
   favoriteTeam: string | null;
   points: number;
   checkIns: CheckIn[];
   language: 'en' | 'ar';
   isRTL: boolean;
+  selectedSeason: Season;
 }
 
 interface AppContextType extends AppState {
@@ -25,6 +28,7 @@ interface AppContextType extends AppState {
   toggleLanguage: () => void;
   getTier: () => 'fan' | 'regular' | 'ultra' | 'legend';
   getTierProgress: () => { current: number; next: number; checkInsToNext: number };
+  setSelectedSeason: (season: Season) => void;
 }
 
 const STORAGE_KEY = '@dawri_state';
@@ -35,6 +39,7 @@ const defaultState: AppState = {
   checkIns: [],
   language: 'en',
   isRTL: false,
+  selectedSeason: '2025-26',
 };
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -166,6 +171,12 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     };
   };
 
+  const setSelectedSeason = (season: Season) => {
+    const newState = { ...state, selectedSeason: season };
+    setState(newState);
+    saveState(newState);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -176,6 +187,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         toggleLanguage,
         getTier,
         getTierProgress,
+        setSelectedSeason,
       }}
     >
       {children}
