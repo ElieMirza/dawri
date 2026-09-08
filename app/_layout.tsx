@@ -7,12 +7,12 @@ import { ThemeProvider, DarkTheme } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import {
   useFonts,
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  Inter_800ExtraBold,
-} from '@expo-google-fonts/inter';
+  DMSans_400Regular,
+  DMSans_500Medium,
+  DMSans_600SemiBold,
+  DMSans_700Bold,
+  DMSans_800ExtraBold,
+} from '@expo-google-fonts/dm-sans';
 import {
   NotoSansArabic_400Regular,
   NotoSansArabic_500Medium,
@@ -43,11 +43,11 @@ const DawriDarkTheme = {
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    Inter_800ExtraBold,
+    DMSans_400Regular,
+    DMSans_500Medium,
+    DMSans_600SemiBold,
+    DMSans_700Bold,
+    DMSans_800ExtraBold,
     NotoSansArabic_400Regular,
     NotoSansArabic_500Medium,
     NotoSansArabic_700Bold,
@@ -92,7 +92,7 @@ export default function RootLayout() {
           html, body, #root {
             background-color: ${Colors.dark.background} !important;
             color: ${Colors.dark.text};
-            font-family: 'Inter_400Regular', Inter, system-ui, sans-serif;
+            font-family: 'DMSans_400Regular', 'DM Sans', system-ui, sans-serif;
           }
           html[lang="ar"] body, html[lang="ar"] #root, .dawri-ar {
             font-family: 'NotoSansArabic_400Regular', 'Noto Sans Arabic', Tahoma, sans-serif !important;

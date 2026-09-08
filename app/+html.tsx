@@ -3,7 +3,7 @@ import type { PropsWithChildren } from 'react';
 
 /**
  * Root HTML document for static web export.
- * Loads Noto Sans Arabic early so RTL text does not flash fallback fonts.
+ * Loads DM Sans (EN body), Space Grotesk (display), Noto Sans Arabic early.
  */
 export default function Root({ children }: PropsWithChildren) {
   return (
@@ -15,14 +15,14 @@ export default function Root({ children }: PropsWithChildren) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
           rel="stylesheet"
         />
         <ScrollViewStyleReset />
         <style dangerouslySetInnerHTML={{ __html: `
           html, body, #root { height: 100%; }
           body { margin: 0; background: #0a0a0f; }
-          * { font-family: Inter, 'Noto Sans Arabic', system-ui, sans-serif; }
+          * { font-family: 'DM Sans', 'Noto Sans Arabic', system-ui, sans-serif; }
         `}} />
       </head>
       <body>{children}</body>

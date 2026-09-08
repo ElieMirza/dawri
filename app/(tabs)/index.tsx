@@ -215,7 +215,7 @@ export default function HomeScreen() {
                 {t('home.selectTeam')}
               </Text>
               <Text style={styles.selectTeamHint}>
-                {language === 'ar' ? 'اختر فريقك من المزيد' : 'Pick your club in More'}
+                {language === 'ar' ? 'من المزيد' : 'In More'}
               </Text>
             </Pressable>
           )}
@@ -342,20 +342,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: Colors.dark.card,
-    borderWidth: 1.5,
-    borderColor: Colors.dark.primary,
+    borderWidth: 1,
+    borderColor: Colors.dark.primary + '66',
     paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: BorderRadius.full,
     gap: 6,
-    borderWidth: 1,
-    borderColor: Colors.dark.primary + '66',
   },
   pointsText: {
     color: Colors.dark.primary,
     fontSize: FontSizes.md,
     fontWeight: FontWeights.bold,
-    fontFamily: Fonts.bold,
+    fontFamily: Fonts.display,
   },
   pointsPts: {
     color: Colors.dark.textSecondary,

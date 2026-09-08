@@ -57,61 +57,91 @@ export default function ScheduleScreen() {
   const renderGameCard = (game: Game) => {
     const isG7 = game.type === 'finals' && game.game === 7;
     const isFinals = game.type === 'finals';
+
+    // Featured strip for finals/G7; compact list row for regular season
+    if (!isFinals) {
+      return (
+        <Pressable
+          key={game.id}
+          style={[styles.regularRow, isRTL && styles.rtl]}
+          onPress={() => router.push(`/game/${game.id}`)}
+        >
+          <View style={styles.regularDateCol}>
+            <Text style={styles.regularDate}>{formatDate(game)}</Text>
+          </View>
+          <View style={styles.regularTeams}>
+            <Text style={[styles.regularTeam, game.winner === game.home && styles.winner]} numberOfLines={1}>
+              {getTeamName(game.home)}
+            </Text>
+            <Text style={styles.regularVs}>
+              {game.homeScore != null && game.awayScore != null
+                ? `${game.homeScore}–${game.awayScore}`
+                : 'vs'}
+            </Text>
+            <Text style={[styles.regularTeam, game.winner === game.away && styles.winner]} numberOfLines={1}>
+              {getTeamName(game.away)}
+            </Text>
+          </View>
+          <Ionicons name="chevron-forward" size={14} color={Colors.dark.textMuted} />
+        </Pressable>
+      );
+    }
+
     return (
     <Pressable
       key={game.id}
       style={[
-        styles.gameCard,
-        isFinals && styles.finalsCard,
+        styles.featuredStrip,
         isG7 && styles.g7Card,
       ]}
       onPress={() => router.push(`/game/${game.id}`)}
     >
-      <View style={styles.gameCardHeader}>
-        {isFinals && (
+      <View style={[styles.featuredAccent, isG7 && styles.g7Accent]} />
+      <View style={styles.featuredBody}>
+        <View style={styles.gameCardHeader}>
           <View style={[styles.finalsTag, isG7 && styles.g7Tag]}>
             <Text style={styles.finalsTagText}>
               {isG7 ? (language === 'ar' ? 'النهائي G7' : 'FINALS · G7') : `${t('schedule.finals')} ${game.game ? `G${game.game}` : ''}`}
             </Text>
           </View>
+          <Text style={styles.gameDate}>{formatDate(game)}</Text>
+        </View>
+
+        <View style={styles.gameTeams}>
+          <View style={[styles.teamRow, isRTL && styles.rtl]}>
+            <Text style={[styles.teamName, game.winner === game.home && styles.winner]}>
+              {getTeamName(game.home)}
+            </Text>
+            <Text style={[styles.score, game.winner === game.home && styles.winnerScore]}>
+              {game.homeScore}
+            </Text>
+          </View>
+          <View style={[styles.teamRow, isRTL && styles.rtl]}>
+            <Text style={[styles.teamName, game.winner === game.away && styles.winner]}>
+              {getTeamName(game.away)}
+            </Text>
+            <Text style={[styles.score, game.winner === game.away && styles.winnerScore]}>
+              {game.awayScore}
+            </Text>
+          </View>
+        </View>
+
+        {game.venue && (
+          <View style={[styles.venueRow, isRTL && styles.rtl]}>
+            <Ionicons name="location-outline" size={12} color={Colors.dark.textMuted} />
+            <Text style={styles.venueText}>{game.venue}</Text>
+          </View>
         )}
-        <Text style={styles.gameDate}>{formatDate(game)}</Text>
-      </View>
-      
-      <View style={styles.gameTeams}>
-        <View style={[styles.teamRow, isRTL && styles.rtl]}>
-          <Text style={[styles.teamName, game.winner === game.home && styles.winner]}>
-            {getTeamName(game.home)}
-          </Text>
-          <Text style={[styles.score, game.winner === game.home && styles.winnerScore]}>
-            {game.homeScore}
-          </Text>
-        </View>
-        <View style={[styles.teamRow, isRTL && styles.rtl]}>
-          <Text style={[styles.teamName, game.winner === game.away && styles.winner]}>
-            {getTeamName(game.away)}
-          </Text>
-          <Text style={[styles.score, game.winner === game.away && styles.winnerScore]}>
-            {game.awayScore}
-          </Text>
-        </View>
-      </View>
 
-      {game.venue && (
-        <View style={[styles.venueRow, isRTL && styles.rtl]}>
-          <Ionicons name="location-outline" size={12} color={Colors.dark.textMuted} />
-          <Text style={styles.venueText}>{game.venue}</Text>
-        </View>
-      )}
-
-      {game.notes && (
-        <Text style={[styles.gameNote, isRTL && styles.rtlText]}>{game.notes}</Text>
-      )}
-      {isG7 && (
-        <Text style={[styles.g7Note, isRTL && styles.rtlText]}>
-          {language === 'ar' ? 'مباراة التتويج' : 'Championship clincher'}
-        </Text>
-      )}
+        {game.notes && (
+          <Text style={[styles.gameNote, isRTL && styles.rtlText]}>{game.notes}</Text>
+        )}
+        {isG7 && (
+          <Text style={[styles.g7Note, isRTL && styles.rtlText]}>
+            {language === 'ar' ? 'مباراة التتويج' : 'Championship clincher'}
+          </Text>
+        )}
+      </View>
     </Pressable>
   );
   };
@@ -315,17 +345,68 @@ const styles = StyleSheet.create({
   listContent: {
     paddingHorizontal: Spacing.lg,
     paddingTop: Spacing.md,
-    gap: Spacing.md,
+    gap: Spacing.sm,
   },
-  gameCard: {
-    backgroundColor: Colors.dark.card,
-    borderRadius: BorderRadius.lg,
-    padding: Spacing.md,
+  // Compact list row — regular season (not rounded slabs)
+  regularRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.dark.surface,
+    borderRadius: BorderRadius.sm,
+    paddingVertical: 10,
+    paddingHorizontal: Spacing.sm,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: Colors.dark.border,
+    gap: Spacing.sm,
   },
-  finalsCard: {
+  regularDateCol: {
+    width: 72,
+  },
+  regularDate: {
+    fontSize: FontSizes.xs,
+    fontFamily: Fonts.regular,
+    color: Colors.dark.textMuted,
+  },
+  regularTeams: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    minWidth: 0,
+  },
+  regularTeam: {
+    flex: 1,
+    fontSize: FontSizes.sm,
+    fontFamily: Fonts.medium,
+    color: Colors.dark.textSecondary,
+  },
+  regularVs: {
+    fontSize: FontSizes.sm,
+    fontFamily: Fonts.display,
+    color: Colors.dark.text,
+    minWidth: 40,
+    textAlign: 'center',
+  },
+  // Featured strip — finals / G7
+  featuredStrip: {
+    flexDirection: 'row',
+    backgroundColor: Colors.dark.cardHighlight,
+    borderRadius: BorderRadius.md,
+    overflow: 'hidden',
     borderWidth: 1,
     borderColor: Colors.dark.primary + '66',
-    backgroundColor: Colors.dark.cardHighlight,
+    marginVertical: 4,
+  },
+  featuredAccent: {
+    width: 4,
+    backgroundColor: Colors.dark.primary,
+  },
+  g7Accent: {
+    backgroundColor: Colors.dark.gold,
+  },
+  featuredBody: {
+    flex: 1,
+    padding: Spacing.md,
   },
   g7Card: {
     borderColor: Colors.dark.gold,

@@ -32,19 +32,22 @@ export const Colors = {
 };
 
 export const Fonts = {
-  regular: 'Inter_400Regular',
-  medium: 'Inter_500Medium',
-  semibold: 'Inter_600SemiBold',
-  bold: 'Inter_700Bold',
-  extrabold: 'Inter_800ExtraBold',
+  // EN body — DM Sans (not Expo default Inter)
+  regular: 'DMSans_400Regular',
+  medium: 'DMSans_500Medium',
+  semibold: 'DMSans_600SemiBold',
+  bold: 'DMSans_700Bold',
+  extrabold: 'DMSans_800ExtraBold',
+  // Scores / titles / display
   display: 'SpaceGrotesk_700Bold',
   displayMedium: 'SpaceGrotesk_500Medium',
+  // AR body + UI
   arabic: 'NotoSansArabic_400Regular',
   arabicMedium: 'NotoSansArabic_500Medium',
   arabicBold: 'NotoSansArabic_700Bold',
 };
 
-/** Pick Inter/SpaceGrotesk or Noto Sans Arabic based on language */
+/** Pick DM Sans / Space Grotesk or Noto Sans Arabic based on language */
 export function fontFamily(
   language: 'en' | 'ar',
   weight: 'regular' | 'medium' | 'semibold' | 'bold' | 'extrabold' | 'display' = 'regular'

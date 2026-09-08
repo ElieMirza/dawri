@@ -2,7 +2,7 @@ import { View, Text, ScrollView, StyleSheet, Pressable } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { Colors, Spacing, BorderRadius, FontSizes } from '@/constants/theme';
+import { Colors, Spacing, BorderRadius, FontSizes, Fonts } from '@/constants/theme';
 import { useData } from '@/hooks/useData';
 
 export default function StandingsScreen() {
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   subtitle: {
     color: Colors.dark.textMuted,
     fontSize: FontSizes.sm,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: Fonts.regular,
     marginBottom: Spacing.lg,
     paddingHorizontal: Spacing.sm,
   },
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   headerCell: {
     color: Colors.dark.textMuted,
     fontSize: FontSizes.xs,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: Fonts.semibold,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   cell: {
     color: Colors.dark.text,
     fontSize: FontSizes.sm,
-    fontFamily: 'Inter_400Regular',
+    fontFamily: Fonts.regular,
   },
   rankCell: {
     width: 28,
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   teamNameEn: {
     color: Colors.dark.text,
     fontSize: FontSizes.sm,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: Fonts.medium,
   },
   teamNameAr: {
     color: Colors.dark.textMuted,
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
   statusText: {
     color: Colors.dark.textSecondary,
     fontSize: FontSizes.xs,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: Fonts.medium,
   },
   championText: {
     color: Colors.dark.gold,

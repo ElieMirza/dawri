@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, Pressable, Switch } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable, Switch, Share, Platform } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -22,6 +22,23 @@ export default function MoreScreen() {
     const team = teams.find((tm) => tm.id === teamId);
     if (!team) return '';
     return language === 'ar' ? team.nameAr : team.nameEn;
+  };
+
+  const shareApp = async () => {
+    const url = 'https://dawri-expo.vercel.app';
+    const message =
+      language === 'ar'
+        ? `تابع الدوري اللبناني لكرة السلة — DAWRI\n${url}`
+        : `Follow the Lebanese Basketball League — DAWRI\n${url}`;
+    try {
+      await Share.share(
+        Platform.OS === 'ios'
+          ? { message, url, title: 'DAWRI' }
+          : { message, title: 'DAWRI' }
+      );
+    } catch {
+      /* user cancelled */
+    }
   };
 
   return (
@@ -73,7 +90,7 @@ export default function MoreScreen() {
 
           <View style={styles.brandSection}>
             <View style={styles.brandLogo}>
-              <Ionicons name="basketball" size={40} color={Colors.dark.primary} />
+              <Ionicons name="basketball" size={28} color={Colors.dark.primary} />
             </View>
             <Text style={[styles.brandName, ff('display')]}>{language === 'ar' ? 'الدوري' : 'DAWRI'}</Text>
             <Text style={[styles.brandTagline, ff('regular')]}>{t('app.tagline')}</Text>
@@ -95,12 +112,8 @@ export default function MoreScreen() {
               </View>
               <View style={[styles.settingContent, isRTL && { alignItems: 'flex-end', marginLeft: 0, marginRight: Spacing.md }]}>
                 <Text style={[styles.settingLabel, ff('medium'), isRTL && styles.rtlText]}>{t('more.favoriteTeam')}</Text>
-                <Text style={[styles.settingValue, ff('regular'), isRTL && styles.rtlText]}>
-                  {favoriteTeam
-                    ? getTeamName(favoriteTeam)
-                    : language === 'ar'
-                      ? 'لم يتم الاختيار'
-                      : 'Not selected'}
+                <Text style={[styles.settingValue, ff('regular'), !favoriteTeam && styles.pickCta, isRTL && styles.rtlText]}>
+                  {favoriteTeam ? getTeamName(favoriteTeam) : t('more.pickFavorite')}
                 </Text>
               </View>
               <Ionicons name={showTeams ? 'chevron-up' : 'chevron-forward'} size={20} color={Colors.dark.textMuted} />
@@ -163,6 +176,27 @@ export default function MoreScreen() {
                 disabled
                 trackColor={{ false: Colors.dark.border, true: Colors.dark.primary }}
               />
+            </View>
+
+            <Pressable style={[styles.settingRow, isRTL && styles.rtl]} onPress={shareApp}>
+              <View style={[styles.settingIcon, { backgroundColor: Colors.dark.accent + '22' }]}>
+                <Ionicons name="share-outline" size={20} color={Colors.dark.accent} />
+              </View>
+              <View style={[styles.settingContent, isRTL && { alignItems: 'flex-end', marginLeft: 0, marginRight: Spacing.md }]}>
+                <Text style={[styles.settingLabel, ff('medium'), isRTL && styles.rtlText]}>{t('more.share')}</Text>
+                <Text style={[styles.settingValue, ff('regular'), isRTL && styles.rtlText]}>{t('more.shareHint')}</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color={Colors.dark.textMuted} />
+            </Pressable>
+
+            <View style={[styles.settingRow, isRTL && styles.rtl]}>
+              <View style={[styles.settingIcon, { backgroundColor: Colors.dark.gold + '22' }]}>
+                <Ionicons name="calendar-outline" size={20} color={Colors.dark.gold} />
+              </View>
+              <View style={[styles.settingContent, isRTL && { alignItems: 'flex-end', marginLeft: 0, marginRight: Spacing.md }]}>
+                <Text style={[styles.settingLabel, ff('medium'), isRTL && styles.rtlText]}>{t('more.season')}</Text>
+                <Text style={[styles.settingValue, ff('regular'), isRTL && styles.rtlText]}>{t('more.dataSource')}</Text>
+              </View>
             </View>
           </View>
 
@@ -233,7 +267,7 @@ const styles = StyleSheet.create({
   rtl: { flexDirection: 'row-reverse' },
   langBanner: {
     marginHorizontal: Spacing.lg,
-    marginBottom: Spacing.md,
+    marginBottom: Spacing.sm,
     backgroundColor: Colors.dark.card,
     borderRadius: BorderRadius.lg,
     padding: Spacing.md,
@@ -262,19 +296,20 @@ const styles = StyleSheet.create({
   langBtnTextActive: { color: '#fff', fontWeight: FontWeights.bold },
   brandSection: {
     alignItems: 'center',
-    paddingVertical: Spacing.xl,
+    paddingVertical: Spacing.md,
     borderBottomWidth: 1,
     borderBottomColor: Colors.dark.border,
     marginHorizontal: Spacing.lg,
+    marginBottom: Spacing.xs,
   },
   brandLogo: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
     backgroundColor: Colors.dark.primary + '22',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: Spacing.md,
+    marginBottom: Spacing.sm,
   },
   brandName: {
     fontSize: FontSizes.xxl,
@@ -284,14 +319,18 @@ const styles = StyleSheet.create({
   },
   brandTagline: { fontSize: FontSizes.sm, color: Colors.dark.textSecondary, marginTop: 4 },
   version: { fontSize: FontSizes.xs, color: Colors.dark.textMuted, marginTop: Spacing.sm },
-  section: { paddingHorizontal: Spacing.lg, paddingTop: Spacing.md },
+  section: { paddingHorizontal: Spacing.lg, paddingTop: Spacing.sm },
   sectionTitle: {
     fontSize: FontSizes.sm,
     fontWeight: FontWeights.bold,
     color: Colors.dark.textMuted,
     textTransform: 'uppercase',
     letterSpacing: 1,
-    marginBottom: Spacing.md,
+    marginBottom: Spacing.sm,
+    marginTop: Spacing.xs,
+  },
+  pickCta: {
+    color: Colors.dark.primary,
   },
   settingRow: {
     flexDirection: 'row',

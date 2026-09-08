@@ -17,7 +17,7 @@
     "finalsResult": "النهائي: 4-3 ضد الحكمة",
     "finalsMvp": "أفضل لاعب في النهائي",
     "yourTeam": "فريقك",
-    "selectTeam": "اختر فريقاً لمتابعته",
+    "selectTeam": "اختر الرياضي أو الحكمة",
     "pointsBalance": "رصيد النقاط",
     "tier": "المستوى",
     "recentResults": "آخر النتائج",
@@ -102,7 +102,12 @@
     "seasonData": "موسم 2025-26 (نهائي)",
     "favoriteTeam": "الفريق المفضل",
     "notifications": "الإشعارات",
-    "comingSoon": "قريباً"
+    "comingSoon": "قريباً",
+    "pickFavorite": "اختر الرياضي أو الحكمة",
+    "share": "شارك الدوري",
+    "shareHint": "أرسل رابط التطبيق",
+    "season": "موسم 2025–26",
+    "dataSource": "سجلات الدوري العامة"
   },
   "about": {
     "title": "عن الدوري",

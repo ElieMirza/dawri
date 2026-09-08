@@ -17,7 +17,7 @@
     "finalsResult": "Finals: 4-3 vs Sagesse",
     "finalsMvp": "Finals MVP",
     "yourTeam": "Your Team",
-    "selectTeam": "Select a team to follow",
+    "selectTeam": "Pick Al Riyadi or Sagesse",
     "pointsBalance": "Points Balance",
     "tier": "Tier",
     "recentResults": "Recent Results",
@@ -102,7 +102,12 @@
     "seasonData": "Season 2025-26 (Final)",
     "favoriteTeam": "Favorite Team",
     "notifications": "Notifications",
-    "comingSoon": "Coming Soon"
+    "comingSoon": "Coming Soon",
+    "pickFavorite": "Pick Al Riyadi or Sagesse",
+    "share": "Share DAWRI",
+    "shareHint": "Send the app link",
+    "season": "Season 2025–26",
+    "dataSource": "Public LBL records"
   },
   "about": {
     "title": "About DAWRI",
